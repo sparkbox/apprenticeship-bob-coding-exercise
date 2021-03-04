@@ -13,7 +13,7 @@ const includesCharacters = (message) => /\S/.test(message)
 
 const includesWords = (message) => /[A-z]/.test(message)
 
-const allOneCase = (message) => message.toUpperCase() === message
+const allOneCase = (message) => includesWords(message) && message.toUpperCase() === message
 
 const isStatement = (message) => !/\?\s*$/.test(message)
 
