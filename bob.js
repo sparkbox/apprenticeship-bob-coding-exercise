@@ -31,5 +31,7 @@ export const hey = (message) => {
   if (!allOneCase(message) && !isStatement(message)) {
     return questionResponse
   }
-  return normalResponse
+  if (!allOneCase(message) && isStatement(message)) {
+    return normalResponse
+  }
 };
