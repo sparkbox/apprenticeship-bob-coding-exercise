@@ -30,5 +30,7 @@ export const hey = (message) => {
   }
   if (!isStatement(message)) {
     return questionResponse
+  } else {
+    return normalResponse
   }
 };
