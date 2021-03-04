@@ -9,6 +9,10 @@ const questionResponse = 'Sure.'
 const shoutQuestionResponse = 'Calm down, I know what I\'m doing!'
 const silentResponse = 'Fine. Be that way!'
 
+const includesCharacters = (message) => /\S/.test(message)
+
 export const hey = (message) => {
-  throw new Error('Remove this statement and implement this function');
+  if (!includesCharacters(message)) {
+    return silentResponse
+  }
 };
