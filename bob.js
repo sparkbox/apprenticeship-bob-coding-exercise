@@ -21,19 +21,19 @@ const isStatement = (message) => !/\?\s*$/.test(message)
 
 
 export const hey = (message) => {
-  if (!includesCharacters(message)) {
-    return silentResponse
-  }
-  if (isUppercaseWords(message) && isStatement(message)) {
-    return shoutResponse
-  }
-  if (isUppercaseWords(message) && !isStatement(message)) {
-    return shoutQuestionResponse
+  if (!isUppercaseWords(message) && includesCharacters(message) && isStatement(message)) {
+    return normalResponse
   }
   if (!isUppercaseWords(message) && !isStatement(message)) {
     return questionResponse
   }
-  if (!isUppercaseWords(message) && isStatement(message)) {
-    return normalResponse
+  if (isUppercaseWords(message) && !isStatement(message)) {
+    return shoutQuestionResponse
+  }
+  if (isUppercaseWords(message) && isStatement(message)) {
+    return shoutResponse
+  }
+  if (!includesCharacters(message)) {
+    return silentResponse
   }
 };
