@@ -13,7 +13,9 @@ const includesCharacters = (message) => /\S/.test(message)
 
 const includesWords = (message) => /[A-z]/.test(message)
 
-const allOneCase = (message) => includesWords(message) && message.toUpperCase() === message
+const isAllOneCase = (message) => message.toUpperCase() === message
+
+const isUppercaseWords = (message) => includesWords(message) && isAllOneCase(message)
 
 const isStatement = (message) => !/\?\s*$/.test(message)
 
@@ -22,16 +24,16 @@ export const hey = (message) => {
   if (!includesCharacters(message)) {
     return silentResponse
   }
-  if (allOneCase(message) && isStatement(message)) {
+  if (isUppercaseWords(message) && isStatement(message)) {
     return shoutResponse
   }
-  if (allOneCase(message) && !isStatement(message)) {
+  if (isUppercaseWords(message) && !isStatement(message)) {
     return shoutQuestionResponse
   }
-  if (!allOneCase(message) && !isStatement(message)) {
+  if (!isUppercaseWords(message) && !isStatement(message)) {
     return questionResponse
   }
-  if (!allOneCase(message) && isStatement(message)) {
+  if (!isUppercaseWords(message) && isStatement(message)) {
     return normalResponse
   }
 };
