@@ -22,7 +22,7 @@ export const hey = (message) => {
   if (!includesCharacters(message)) {
     return silentResponse
   }
-  if (includesWords(message) && allOneCase(message) && isStatement(message)) {
+  if (allOneCase(message) && isStatement(message)) {
     return shoutResponse
   }
   if (allOneCase(message) && !isStatement(message)) {
