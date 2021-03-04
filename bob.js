@@ -15,7 +15,8 @@ const includesWords = (message) => /[A-z]/.test(message)
 
 const allOneCase = (message) => message.toUpperCase() === message
 
-const isStatement = (message) => !message.endsWith('?')
+const isStatement = (message) => !/\?\s*$/.test(message)
+
 
 export const hey = (message) => {
   if (!includesCharacters(message)) {
