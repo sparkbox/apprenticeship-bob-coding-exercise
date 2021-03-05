@@ -14,14 +14,30 @@ const isYellingQuestion = (message) =>
 
 const isDefault = () => true;
 
+function Response(condition, responseMessage) {
+  return {
+    isMatch(message) {
+      return condition(message);
+    },
+    responseMessage
+  }
+}
+
 const responses = [
-  [isQuiet, "Fine. Be that way!"],
-  [isYellingQuestion, "Calm down, I know what I'm doing!"],
-  [isQuestion, "Sure."],
-  [isYelling, "Whoa, chill out!"],
-  [isDefault, "Whatever."]
+  new Response(isQuiet, "Fine. Be that way!"),
+  new Response(isYellingQuestion, "Calm down, I know what I'm doing!"),
+  new Response(isQuestion, "Sure."),
+  new Response(isYelling, "Whoa, chill out!"),
+  new Response(isDefault, "Whatever.")
 ];
 
-const selectResponse = (message) => responses.find(([condition]) => condition(message))[1];
+function Person(responses){
+  this.responses = responses;
+  this.respond = function(message){
+    return responses.find(response => response.isMatch(message)).responseMessage;
+  }
+}
 
-export const hey = (message) => selectResponse(message.trim());
+const bob = new Person(responses);
+
+export const hey = (message) => bob.respond(message.trim());
