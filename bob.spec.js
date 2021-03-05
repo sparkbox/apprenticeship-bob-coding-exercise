@@ -6,12 +6,12 @@ describe('Bob', () => {
     expect(result).toEqual('Whatever.');
   });
 
-  xtest('shouting', () => {
+  test('shouting', () => {
     const result = hey('WATCH OUT!');
     expect(result).toEqual('Whoa, chill out!');
   });
 
-  xtest('shouting gibberish', () => {
+  test('shouting gibberish', () => {
     const result = hey('FCECDFCAAB');
     expect(result).toEqual('Whoa, chill out!');
   });
@@ -46,7 +46,7 @@ describe('Bob', () => {
     expect(result).toEqual("Calm down, I know what I'm doing!");
   });
 
-  xtest('shouting numbers', () => {
+  test('shouting numbers', () => {
     const result = hey('1, 2, 3 GO!');
     expect(result).toEqual('Whoa, chill out!');
   });
@@ -61,12 +61,12 @@ describe('Bob', () => {
     expect(result).toEqual('Sure.');
   });
 
-  xtest('shouting with special characters', () => {
+  test('shouting with special characters', () => {
     const result = hey('ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!');
     expect(result).toEqual('Whoa, chill out!');
   });
 
-  xtest('shouting with no exclamation mark', () => {
+  test('shouting with no exclamation mark', () => {
     const result = hey('I HATE YOU');
     expect(result).toEqual('Whoa, chill out!');
   });
@@ -81,7 +81,7 @@ describe('Bob', () => {
     expect(result).toEqual('Sure.');
   });
 
-  xtest('prattling on', () => {
+  test('prattling on', () => {
     const result = hey('Wait! Hang on. Are you going to be OK?');
     expect(result).toEqual('Sure.');
   });
@@ -111,7 +111,7 @@ describe('Bob', () => {
     expect(result).toEqual('Whatever.');
   });
 
-  xtest('ending with whitespace', () => {
+  test('ending with whitespace', () => {
     const result = hey('Okay if like my  spacebar  quite a bit?   ');
     expect(result).toEqual('Sure.');
   });
