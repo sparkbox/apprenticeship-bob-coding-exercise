@@ -5,6 +5,7 @@
     "ecmaVersion": 7,
     "sourceType": "module"
   },
+  "plugins": ["functional"],
   "globals": {
     "BigInt": true
   },
@@ -16,7 +17,10 @@
   "extends": [
     "eslint:recommended",
     "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:import/warnings",
+    "plugin:functional/external-recommended",
+    "plugin:functional/recommended",
+    "plugin:functional/stylitic"
   ],
   "rules": {
     "linebreak-style": "off",
