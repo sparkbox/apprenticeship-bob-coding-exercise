@@ -27,7 +27,15 @@ export const hey = (message) => {
 
 const isYelling = (message) => {
   // check for letters first?
+  return (isUpperCase(message) && isNotAllLowerCase(message));
+}
+
+const isUpperCase = (message) => {
   return message.toUpperCase() === message;
+}
+
+const isNotAllLowerCase = (message) => {
+  return message.toLowerCase() !== message;
 }
 
 const replyToQuestionYelling = () => {
